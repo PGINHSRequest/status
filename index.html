@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Request Status</title>
+  <title>Student Request Status</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,10 +12,14 @@
     h2 {
       text-align: center;
     }
+    p {
+      text-align: center;
+      color: #555;
+    }
     table {
       width: 100%;
-      max-width: 800px;
-      margin: auto;
+      max-width: 900px;
+      margin: 20px auto;
       border-collapse: collapse;
       background: #fff;
     }
@@ -26,7 +30,7 @@
     }
     th {
       background: #007bff;
-      color: white;
+      color: #fff;
     }
     .pending {
       background-color: #fff3cd;
@@ -43,18 +47,21 @@
 <body>
 
   <h2>Student Document Request Status</h2>
+  <p>Check your request status below.</p>
 
   <table>
     <thead>
       <tr>
-        <th>Student LRN</th>
+        <th>LRN</th>
         <th>Name</th>
-        <th>Requested Document</th>
+        <th>Document Requested</th>
         <th>Status</th>
       </tr>
     </thead>
     <tbody>
-      <!-- EDIT THESE ROWS MANUALLY -->
+
+      <!-- ADD / UPDATE ROWS MANUALLY -->
+
       <tr>
         <td>123456</td>
         <td>Juan Dela Cruz</td>
@@ -68,6 +75,7 @@
         <td>Certificate of Honors</td>
         <td class="done">DONE</td>
       </tr>
+
     </tbody>
   </table>
 
