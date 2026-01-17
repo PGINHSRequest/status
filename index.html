@@ -59,25 +59,50 @@
       </tr>
     </thead>
     <tbody>
-
-      <!-- ADD / UPDATE ROWS MANUALLY -->
-
-      <tr>
-        <td>123456</td>
-        <td>Juan Dela Cruz</td>
-        <td>Transcript of Records</td>
-        <td class="pending">PENDING</td>
-      </tr>
-
-      <tr>
-        <td>654321</td>
-        <td>Maria Santos</td>
-        <td>Certificate of Honors</td>
-        <td class="done">DONE</td>
-      </tr>
-
+      <!-- Table rows will be generated dynamically -->
     </tbody>
   </table>
+
+  <script>
+    // Add your students here
+    const studentRequests = [
+      { lrn: '123456', name: 'Juan Dela Cruz', document: 'Transcript of Records', status: 'PENDING' },
+      { lrn: '654321', name: 'Maria Santos', document: 'Certificate of Honors', status: 'PENDING' },
+      { lrn: '112233', name: 'Pedro Reyes', document: 'Good Moral Certificate', status: 'PENDING' }
+    ];
+
+    const tbody = document.querySelector('table tbody');
+
+    // Function to render table rows
+    function renderTable() {
+      tbody.innerHTML = '';
+      studentRequests.forEach(student => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${student.lrn}</td>
+          <td>${student.name}</td>
+          <td>${student.document}</td>
+          <td class="${student.status.toLowerCase()}">${student.status}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Check URL parameters for status updates
+    const urlParams = new URLSearchParams(window.location.search);
+    const lrnParam = urlParams.get('lrn');
+    const statusParam = urlParams.get('status');
+
+    if (lrnParam && statusParam) {
+      studentRequests.forEach(student => {
+        if (student.lrn === lrnParam) {
+          student.status = statusParam.toUpperCase();
+        }
+      });
+    }
+
+    renderTable(); // Initial render
+  </script>
 
 </body>
 </html>
